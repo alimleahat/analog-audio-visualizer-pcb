@@ -1,0 +1,15 @@
+# KiCad local state and backups
+*.kicad_prl
+*.lck
+~*.lck
+_autosave-*
+*-backups/
+*.kicad_sch-bak
+*.kicad_pcb-bak
+fp-info-cache
+# Local files
+.DS_Store
+Thumbs.db
+.env
+# Large demo recordings are distributed as release assets.
+*.mp4

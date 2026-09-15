@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-09-15T15:36:15-0400",
+    "kicad_version": "9.0.7",
+    "schematic_parity": [
+        {
+            "description": "Extra footprint",
+            "items": [
+                {
+                    "description": "Footprint MT4",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 155.0
+                    },
+                    "uuid": "586cee0d-7e22-4349-a3e7-734a86f88f07"
+                }
+            ],
+            "severity": "warning",
+            "type": "extra_footprint"
+        },
+        {
+            "description": "Extra footprint",
+            "items": [
+                {
+                    "description": "Footprint MT2",
+                    "pos": {
+                        "x": 215.0,
+                        "y": 66.0
+                    },
+                    "uuid": "a919aef3-2447-41c5-82fa-b8f61b4f6ee5"
+                }
+            ],
+            "severity": "warning",
+            "type": "extra_footprint"
+        },
+        {
+            "description": "Extra footprint",
+            "items": [
+                {
+                    "description": "Footprint MT1",
+                    "pos": {
+                        "x": 95.0,
+                        "y": 65.0
+                    },
+                    "uuid": "bc478c27-6207-4bf7-9ac4-9d4411aa9c1f"
+                }
+            ],
+            "severity": "warning",
+            "type": "extra_footprint"
+        },
+        {
+            "description": "Extra footprint",
+            "items": [
+                {
+                    "description": "Footprint MT3",
+                    "pos": {
+                        "x": 215.0,
+                        "y": 155.0
+                    },
+                    "uuid": "c48342a1-589d-41fa-9d31-9d0a3ca18e75"
+                }
+            ],
+            "severity": "warning",
+            "type": "extra_footprint"
+        }
+    ],
+    "source": "audiovisualiser.kicad_pcb",
+    "unconnected_items": [],
+    "violations": []
+}
