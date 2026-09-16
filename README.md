@@ -35,7 +35,3 @@ The folders contain:
 - **`docs/`** — design images, assembly photos, measurements, and design-check reports.
 
 The latest KiCad checks report no electrical or PCB layout violations under the saved rules, and no unconnected items. Four comparison warnings identify mounting holes that appear only on the PCB. Details are in the [testing notes](docs/testing.md).
-
-## Credits
-
-**Ali Mleahat — ELEC2101 coursework.** Circuit topology and instructions were supplied by the course; the schematic capture, PCB implementation, assembly, and testing are my work. The course manual is not included. No open-source hardware license has been selected.
