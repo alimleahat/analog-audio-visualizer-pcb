@@ -1,113 +1,41 @@
 # Analog Audio Visualizer PCB
 
-**A three-band audio visualizer taken from schematic capture through PCB layout, assembly, and bench testing.**
-
-Audio is split into bass, midrange, and treble paths, each driving an LED through an analog filter and transistor stage. The board uses op-amps and discrete components, with adjustable input gain and dual ±12 V rails.
-
-**KiCad 9 · Analog electronics · Two-layer PCB · Through-hole and SMD assembly · Bench testing**
+A three-band audio visualizer built for **ELEC2101 Electronic Circuits and Systems Design**. It separates audio into bass, midrange, and treble, with an LED responding to each band.
 
 ![Assembled audio visualizer PCB](docs/images/assembled-top.png)
 
-[Demo videos](https://github.com/alimleahat/analog-audio-visualizer-pcb/releases/tag/v1.0) · [Schematic](docs/images/schematic.png) · [PCB layout](docs/images/pcb-layout.png) · [Testing notes](docs/testing.md)
+## My contribution
 
-## My work
+Following the course guide and reference circuit, I completed the schematic in KiCad, assigned component footprints, laid out and routed the PCB, prepared the manufacturing files, assembled the board, and tested it in the lab.
 
-I completed the schematic capture, component footprint assignment, PCB placement and routing, fabrication-file preparation, assembly, and testing for this **ELEC2101 Electronic Circuits and Systems Design** coursework project.
+The project gave me practical experience with analog circuits, two-layer PCB layout, through-hole and surface-mount soldering, and electrical measurements.
 
-The project followed the course's *PCB Design Main Manual* and supplied reference circuit. My contribution is the implementation and physical build of that guided design. The course manual is credited here and is not redistributed in this repository.
+## How it works
 
-## What the circuit does
+The audio input passes through an adjustable amplifier, then three filters separate the low, middle, and high frequencies. Transistor circuits drive the corresponding LEDs. The circuit uses LM2904 and LM2902 op-amps and a dual ±12 V supply.
 
-1. **Input stage:** an LM2904 amplifier and 50 kΩ adjustment provide input gain control.
-2. **Filter bank:** LM2902 op-amp stages separate low-, mid-, and high-frequency content.
-3. **LED drive:** signal diodes and 2N3904 transistors drive the three indicator LEDs.
-4. **Power:** the design includes a bridge rectifier, reservoir capacitors, and positive/negative regulators. The demonstrated assembly was powered directly from a regulated bench supply.
+[View the schematic](docs/images/schematic.png) · [View the PCB layout](docs/images/pcb-layout.png)
 
-```mermaid
-flowchart LR
-    IN[Audio input] --> GAIN[Adjustable gain]
-    GAIN --> LOW[Low-pass filter]
-    GAIN --> MID[Band-pass filter]
-    GAIN --> HIGH[High-pass filter]
-    LOW --> BASS[Bass LED driver]
-    MID --> MIDS[Mid LED driver]
-    HIGH --> TREBLE[Treble LED driver]
-    PSU[Dual supply rails] -.-> GAIN
-    PSU -.-> LOW
-    PSU -.-> MID
-    PSU -.-> HIGH
-```
+## Assembly and testing
 
-## Design and build
+The board was assembled and tested using a regulated bench supply connected through J3. The recorded supply measurements were **+11.99 V** and **−12.03 V**. The lab checklist records all three LEDs responding to audio and the sensitivity adjustment working.
 
-- Two copper layers, with signal/power routing and a ground pour.
-- Four mounting holes and 16 labelled test points for inspection and measurement.
-- Through-hole ICs, connectors, and passive components, plus SMD resistors.
-- Editable KiCad project, original manufacturing outputs, and a bill of materials.
-- Build photographs showing the assembled board, solder side, and SMD detail.
+The bridge rectifier BR1 was unavailable, so the AC-input power-supply section was not tested. The treble LED is yellow instead of the blue LED specified in the design.
 
-<details>
-<summary>View the layout and assembly details</summary>
+[Solder-side photo](docs/images/solder-side.png) · [Surface-mount detail](docs/images/smd-detail.png) · [Measurement photos and test notes](docs/testing.md)
 
-### PCB layout
+## Open the design
 
-![PCB routing and component placement](docs/images/pcb-layout.png)
+Open [`hardware/audiovisualiser.kicad_pro`](hardware/audiovisualiser.kicad_pro) in **KiCad 9** with the standard symbol and footprint libraries installed. The project includes the editable schematic and PCB layout.
 
-### Original 3D preview
+The folders contain:
 
-![KiCad 3D preview of the designed board](docs/images/pcb-3d-top.png)
+- **`hardware/`** — KiCad project, schematic, and PCB.
+- **`manufacturing/`** — Gerber and drill files for fabrication, a bill of materials, and component positions.
+- **`docs/`** — design images, assembly photos, measurements, and design-check reports.
 
-The CAD preview represents the design, including BR1. The physical build omitted BR1 and used a yellow treble LED.
+The latest KiCad checks report no electrical or PCB layout violations under the saved rules, and no unconnected items. Four comparison warnings identify mounting holes that appear only on the PCB. Details are in the [testing notes](docs/testing.md).
 
-### Solder side
+## Credits
 
-![Underside and solder joints](docs/images/solder-side.png)
-
-### SMD assembly
-
-![Close-up of SMD resistors and LED driver components](docs/images/smd-detail.png)
-
-</details>
-
-## Testing and evidence
-
-The original bench records document **+11.99 V at TP4** and **−12.03 V at TP5**, with photos of both readings. The submitted checklist records responses from all three signal LEDs and a working sensitivity adjustment.
-
-**Test configuration:** BR1 was not populated because the component was unavailable. The board was supplied through J3 from a regulated ±12 V bench supply. The AC input, bridge rectifier, and regulator path were not validated by this test. D6 used a yellow LED instead of the specified blue LED.
-
-Fresh checks of the preserved design in **KiCad 9.0.7** found:
-
-- **ERC:** zero reported violations under the saved project rules.
-- **PCB DRC:** zero reported layout violations and zero unconnected items.
-- **Schematic parity:** four warnings for PCB-only mounting-hole footprints MT1–MT4.
-
-These checks do not replace electrical characterization. Measured filter frequency-response curves and AC power-path testing are not included. See [testing details and reports](docs/testing.md).
-
-## Open the project
-
-1. Install KiCad 9 with its standard symbol and footprint libraries.
-2. Open [`hardware/audiovisualiser.kicad_pro`](hardware/audiovisualiser.kicad_pro).
-3. Use the project manager to open the schematic or PCB editor.
-4. Inspect the design and saved rule settings before making changes or generating new production files.
-
-The original design filenames are retained so the project, schematic, and PCB share the same basename.
-
-## Repository contents
-
-```text
-hardware/                 Editable KiCad project, schematic, and PCB
-manufacturing/gerbers/    Original copper, mask, silkscreen, outline, and drill files
-manufacturing/           Bill of materials and component positions
-docs/images/             Selected design, assembly, and measurement images
-docs/validation/         Original screenshots and current KiCad reports
-docs/testing.md          Bench configuration, measurements, and limitations
-docs/source-selection.md File selection and provenance notes
-```
-
-The [v1.0 release](https://github.com/alimleahat/analog-audio-visualizer-pcb/releases/tag/v1.0) carries the original demo recordings separately from the source files.
-
-## Project context
-
-**Author:** Ali Mleahat · **Module:** ELEC2101
-
-This is a guided coursework hardware project. The circuit topology and instructional material originate from the course reference. Existing embedded component-library information is retained; no open-source hardware license has been selected.
+**Ali Mleahat — ELEC2101 coursework.** Circuit topology and instructions were supplied by the course; the schematic capture, PCB implementation, assembly, and testing are my work. The course manual is not included. No open-source hardware license has been selected.

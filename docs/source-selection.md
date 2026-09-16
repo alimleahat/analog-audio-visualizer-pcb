@@ -10,11 +10,11 @@ The seven Gerber files match the Week 4 production archive byte-for-byte. Plated
 
 The extracted Week 11 folder matches the final Week 11 ZIP. The archive with the `2.zip` suffix differs in its README and test checklist; the final extracted folder was used because it includes the explicit BR1 omission and bench-supply test qualification.
 
-Three assembly images were extracted from the final assembly-photo PDF. The power-on and positive/negative rail photos come from the final testing folder. Image content is preserved. The original full demo and LED-response recordings are distributed in the v1.0 release.
+Three assembly images were extracted from the final assembly-photo PDF. The power-on and positive/negative rail photos come from the final testing folder. Image content is preserved.
 
 ## Excluded material
 
-Duplicate submission archives, autosaves, backup ZIPs, local KiCad state, repeated photo PDFs, and student-number submission filenames are omitted. The original test checklist contains general instructions and a broad pass statement that could obscure the untested AC power path; its relevant outcomes are summarized in `testing.md`.
+Videos, duplicate submission archives, autosaves, backup ZIPs, local KiCad state, repeated photo PDFs, and student-number submission filenames are omitted. The original test checklist contains general instructions and a broad pass statement that could obscure the untested AC power path; its relevant outcomes are summarized in `testing.md`.
 
 The course manual and supplied reference PDF were used to establish project context. They are not republished. The public schematic is the author's KiCad capture of the guided reference design.
 

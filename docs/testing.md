@@ -33,4 +33,4 @@ Checks use the project's saved rule severities; some rule categories are configu
 
 ## Validation limits
 
-The evidence does not include a swept frequency-response measurement, quantified distortion/noise, measured cutoff tolerances, or verification of the AC-to-DC power path. The recordings and checklist document a functional demonstration rather than complete analog performance characterization.
+The evidence does not include a swept frequency-response measurement, quantified distortion/noise, measured cutoff tolerances, or verification of the AC-to-DC power path. The checklist records functional testing; it does not establish complete analog performance characterization.

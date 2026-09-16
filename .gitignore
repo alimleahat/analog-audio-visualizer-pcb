@@ -11,5 +11,5 @@ fp-info-cache
 .DS_Store
 Thumbs.db
 .env
-# Large demo recordings are distributed as release assets.
+# Videos are excluded from the portfolio repository.
 *.mp4
